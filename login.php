@@ -25,7 +25,7 @@ include_once 'plantillas/navbar.inc.php';
                         <input tipe="email" name="email" id="email" class="form-control" placeholder="Introduce tu correo">
                         <br>
                         <label for="clave" class="sr-only">Contraseña</label>
-                        <input tipe="password" name="clave" id="clave" class="form-control" placeholder="Contraseña">
+                        <input type='password' name="clave" id="clave" class="form-control" placeholder="Contraseña">
                         <br>
                         <button type="submit" name="login" class="btn btn-lg btn-primary btn-block">Iniciar seción</button>
                     </form>
