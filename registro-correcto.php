@@ -24,7 +24,7 @@ include_once 'plantillas/navbar.inc.php';
             <div class="panel-body text-center">
                 <p>¡Gracias por registrarte <b><?php echo $nombre; ?></b>!</p>
                 <br>
-                <p><a href="<?php echo RUTA_LOGING?>">Inicia secion</a> Para comenzar a usar tu cuenta.</p>
+                <p><a href="<?php echo RUTA_LOGIN?>">Inicia secion</a> Para comenzar a usar tu cuenta.</p>
             </div>
     </div>
 </div>
