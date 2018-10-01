@@ -19,7 +19,7 @@ Conexion:: cerrar_conexion();
         <div id="navbar" class="navbar-collapse collapse" >
             
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Cambios de visitas</a></li>
+                <li><a href="<?php echo RUTA_LOGIN?>">Iniciar seción</a></li>
                 <li><a href="#">Historico</a></li>
                 <li>Visitas</li>
                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php echo count($usuarios); ?>
