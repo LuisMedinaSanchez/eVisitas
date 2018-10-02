@@ -4,7 +4,7 @@
 </div>
 <div class="form-group">
     <label>Cuenta de correo</label>
-    <input type="text" class="form-control" name="email" required="required">
+    <input type="email" class="form-control" name="email" required="required" placeholder="cuenta@transpheric.com">
 </div>
 <div class="form-group">
     <label>Contraseña</label>

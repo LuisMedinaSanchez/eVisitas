@@ -52,7 +52,7 @@ class validadorregistro {
             $this->nombre = $nombre;
         }
         //validamos que el nombre no contenga menos de 6 caracteres
-        if (strlen($nombre) < 1) {
+        if (strlen($nombre) < 7) {
             return"El nombre debe ser mas largo de 6 caracteres.";
         }
         //validamos que el nombre no sea mas de 24 caracteres
@@ -88,7 +88,7 @@ class validadorregistro {
         } else {
             $this->clave1 = $clave1;
         }
-        if (strlen($clave1) < 1) {
+        if (strlen($clave1) < 7) {
             return"La contraseña debe ser mayor de 7 caracteres";
         }
         return"";

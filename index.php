@@ -5,7 +5,11 @@ include_once 'app/Usuario.inc.php';
 include_once 'app/RepositorioUsuario.inc.php';
 include_once 'app/ValidadorRegistro.inc.php';
 include_once 'app/redireccion.inc.php';
+include_once 'app/ControlSesion.inc.php';
 
+if(ControlSesion::sesion_iniciada()){
+    Redireccion::redirigir(RUTA_SESION_INICIADA);
+}
 if (isset($_POST['enviar'])) {
     //al escribir :: decimos que vamos a usar un metodo dentro del archivo
     conexion::abrir_conexion();
@@ -27,14 +31,14 @@ if (isset($_POST['enviar'])) {
     
     conexion:: cerrar_conexion();
 }
-
+$titulo = 'Registro de usuarios';
 
 include_once 'plantillas/documento-declaracion.inc.php';
 include_once 'plantillas/navbar.inc.php';
 ?>
 
 <div class="container">
-    <h4 class="text-center">Registro de visitas</h4>
+    <h4 class="text-center">Registro de usuarios</h4>
 </div>
 
 <div class="container">

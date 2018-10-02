@@ -7,7 +7,7 @@
 </div>
 <div class="form-group">
     <label>Cuenta de correo</label>
-    <input type="text" class="form-control" name="email" required="required" <?php $validador->mostrar_email()?>>
+    <input type="email" class="form-control" name="email" required="required" placeholder="cuenta@transpheric.com" <?php $validador->mostrar_email()?>>
     <?php
     $validador->mostrar_error_mail();
     ?>

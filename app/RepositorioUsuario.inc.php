@@ -99,6 +99,7 @@ class repositoriousuario {
 
         if (isset($conexion)) {
             try {
+                include_once 'Usuario.inc.php';
                 $sql = "SELECT * FROM usuarios WHERE email = :email";
 
                 $sentencia = $conexion->prepare($sql);
@@ -133,13 +134,12 @@ class repositoriousuario {
                 $sentencia->execute();
                 $resultado = $sentencia -> fetch();
                 if (!empty($resultado)){
-                    $usuario = new Usuario($resultado['id_usuario'],
+                    $usuario = new usuario($resultado['id_usuario'],
                             $resultado['nombre'],
                             $resultado['email'],
                             $resultado['password'],
                             $resultado['fecha_registro'],
                             $resultado['activo']);
-                    
                 }
             } catch (PDOException $ex) {
                 print 'Error' . $ex->getMessage();

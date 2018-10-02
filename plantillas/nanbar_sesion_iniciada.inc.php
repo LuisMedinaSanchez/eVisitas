@@ -1,4 +1,5 @@
 <?php
+//Esta hoja es para mostrar una barra de navegacion diferene a la del index
 // Abrir conexion usando el metodo abrir_conexion dentro del archivo Conexion.inc.php
 Conexion::abrir_conexion();
 $usuarios = RepositorioUsuario :: obtener_todos(Conexion::obtener_conexion());
@@ -17,13 +18,15 @@ Conexion:: cerrar_conexion();
             <img alt="Porto" width="250" data-sticky-width="98" data-sticky-top="33" src="http://transpheric.com/dd/public/frontend/img/logo.png">
         </div>
         <div id="navbar" class="navbar-collapse collapse" >
-            
+
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo RUTA_LOGIN?>">Iniciar sesión</a></li>
+                <li><a href="<?php echo SERVIDOR ?>">Registro de visitas</a></li>
                 <li><a href="#">Historico</a></li>
+                <li><a href="<?php echo RUTA_LOGIN_CIERRE ?>">Cerrar sesión</a></li>
                 <li>Visitas</li>
-                   <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php echo count($usuarios); ?>
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php echo count($usuarios); ?>
             </ul>
         </div>
     </div>
 </nav>
+
