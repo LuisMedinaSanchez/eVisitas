@@ -10,20 +10,23 @@ if (ControlSesion::sesion_iniciada()) {
 }
 $titulo = '¡Nos vemos!';
 include_once 'plantillas/documento-declaracion.inc.php';
-include_once 'plantillas/navbar.inc.php';
+include_once 'plantillas/navbar_index.inc.php';
 ?>
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default"></div>
-            <div class="panel-heading">
-                <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Sesión Cerrada !
-            </div>
-            <div class="panel-body text-center">
-                <br>
-                <p>volver al <a href="<?php echo SERVIDOR ?>">Inicio</a> o <a href="<?php echo RUTA_LOGIN ?>">Inicia secion</a> para usar tu cuenta.</p>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading" class="text-center">
+                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Sesión cerrada!
+                </div>
+                <div class="panel-body text-center">
+                    <br>
+                    <p>volver al <a href="http://transpheric.com">Inicio</a> o <a href="<?php echo SERVIDOR ?>">Inicia sesión</a> para usar tu cuenta.</p>
+                </div>
             </div>
         </div>
+        <div class="col-md-4"></div>
     </div>
 </div>     
 <?php

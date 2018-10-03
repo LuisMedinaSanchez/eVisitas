@@ -13,6 +13,3 @@
         <link href="css/styles.css" rel="stylesheet">
     </head>
     <body>
-
-
-
