@@ -35,7 +35,7 @@ if (isset($_POST['enviar'])) {
 $titulo = 'Registro de usuarios';
 
 include_once 'plantillas/documento-declaracion.inc.php';
-include_once 'plantillas/nanbar_sesion_iniciada.inc.php';
+include_once 'plantillas/navbar_inicio.inc.php';
 ?>
 
 <div class="container">

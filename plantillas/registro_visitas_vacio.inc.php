@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-md-3">
                     <label><strong class="text-danger" style="font-size: 20px"></strong> Hora de atencion:</label>
-                    <input type="time" value='' class="form-control" id="numext" name="numext">
+                    <input type="time" value='' class="form-control" id="hor_atencion" name="hor_atencion">
                 </div>
 
             </div>												
@@ -95,7 +95,7 @@
         <div class="row">
             <div class="form-group">
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-default btn-primary" name="enviar">Enviar</button>
+                    <button type="submit" class="btn btn-default btn-primary" name="registrar">Enviar</button>
                     <button type="reset" class="btn btn-default btn-primary">Limpiar formulario</button>
                 </div>
             </div>

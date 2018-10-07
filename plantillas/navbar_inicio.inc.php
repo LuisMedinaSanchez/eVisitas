@@ -2,7 +2,7 @@
 //Esta hoja es para mostrar una barra de navegacion diferene a la del index
 // Abrir conexion usando el metodo abrir_conexion dentro del archivo Conexion.inc.php
 Conexion::abrir_conexion();
-$usuarios = RepositorioUsuario :: obtener_todos(Conexion::obtener_conexion());
+$visitas = RepositorioUsuario :: obtener_todos(Conexion::obtener_conexion());
 Conexion:: cerrar_conexion();
 ?>
 <nav class="navbar navbar-default navbar-static-top">
@@ -21,7 +21,7 @@ Conexion:: cerrar_conexion();
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo RUTA_SESION_INICIADA ?>">Regresar</a></li>
                 <li><a href="<?php echo RUTA_LOGIN_CIERRE ?>">Cerrar sesión</a></li>
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span><li>Visitas activas: </li><?php echo count($usuarios); ?>
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span><li>Visitas activas: </li><?php echo count($visitas); ?>
             </ul>
         </div>
     </div>
