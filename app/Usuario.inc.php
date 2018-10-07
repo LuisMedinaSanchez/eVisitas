@@ -1,8 +1,9 @@
 <?php
+
 //esta clase hace que la informacion sea jalada de manera segura
 //colocando los valores de la BD
 class usuario {
-    
+
     //aqui coloque los metodos para que la informacion este oculta y en otro metodo se llama la informacion
     public $id_usuario;
     public $nombre;
@@ -10,7 +11,7 @@ class usuario {
     public $password;
     public $fecha_registro;
     public $activo;
-    
+
     //Este constructor tiene todos los campos que manejaremos y que son los mismos de la tabla en SQL
     public function __construct($id_usuario, $nombre, $email, $password, $fecha_registro, $activo) {
         //

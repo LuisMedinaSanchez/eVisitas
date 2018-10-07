@@ -5,7 +5,6 @@ Conexion::abrir_conexion();
 $usuarios = RepositorioUsuario :: obtener_todos(Conexion::obtener_conexion());
 Conexion:: cerrar_conexion();
 ?>
-
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">
@@ -18,10 +17,7 @@ Conexion:: cerrar_conexion();
             <a title="Inicio" href="http://www.transpheric.com"><img alt="Porto" width="250" data-sticky-width="98" data-sticky-top="33" src="http://transpheric.com/dd/public/frontend/img/logo.png"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse" >
-            
-            <ul class="nav navbar-nav navbar-right">
-              
-            </ul>
+            <ul class="nav navbar-nav navbar-right"></ul>
         </div>
     </div>
 </nav>

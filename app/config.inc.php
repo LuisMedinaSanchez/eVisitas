@@ -3,7 +3,6 @@ define('NOMBRE_SERVIDOR', 'localhost');
 define('NOMBRE_USUARIO', 'root');
 define('PASSWORD', '');
 define('NOMBRE_BD', 'blog');
-
 define("SERVIDOR", "http://localhost:88/transpheric");
 define("REGISTRO_CORRECTO", SERVIDOR."/registro-correcto");
 define("RUTA_LOGIN", SERVIDOR."/login");

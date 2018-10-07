@@ -1,4 +1,5 @@
 <?php
+
 include_once 'RepositorioUsuario.inc.php';
 
 class ValidadorLogin {
@@ -14,7 +15,7 @@ class ValidadorLogin {
             $this->error = "Debes introducir tu email y contraseña";
         } else {
             $this->usuario = repositoriousuario :: obtener_usuario_por_email($conexion, $email);
-            if (is_null($this -> usuario) || !password_verify($clave, $this->usuario-> obtener_password())) {
+            if (is_null($this->usuario) || !password_verify($clave, $this->usuario->obtener_password())) {
                 $this->error = "Datos incorrectos";
             }
         }
@@ -27,17 +28,21 @@ class ValidadorLogin {
             return false;
         }
     }
-    public function obtener_usuario(){
-        return $this-> usuario;
+
+    public function obtener_usuario() {
+        return $this->usuario;
     }
-    
-    public function obtener_error(){
-        return $this-> error;
+
+    public function obtener_error() {
+        return $this->error;
     }
-    public function mostrar_error(){
-        if ($this-> error !== '');
+
+    public function mostrar_error() {
+        if ($this->error !== '')
+            ;
         echo "<br><div class='alert alert-danger' role='alert'>";
-        echo $this-> error;
+        echo $this->error;
         echo "</div> <br>";
     }
+
 }

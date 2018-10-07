@@ -4,20 +4,17 @@ include_once 'app/Conexion.inc.php';
 include_once 'app/RepositorioUsuario.inc.php';
 include_once 'plantillas/documento-declaracion.inc.php';
 include_once 'plantillas/nanbar_sesion_iniciada.inc.php';
-include_once 'app/ControlSesion.inc.php';
 include_once 'app/config.inc.php';
-include_once 'app/Conexion.inc.php';
 include_once 'app/RepositorioUsuario.inc.php';
 include_once 'app/ValidadorLogin.inc.php';
 include_once 'app/ControlSesion.inc.php';
 include_once 'app/redireccion.inc.php';
 
-if(ControlSesion::sesion_iniciada()){
-}else{
+if (ControlSesion::sesion_iniciada()) {
+    
+} else {
     Redireccion::redirigir(SERVIDOR);
 }
-    
-
 ?>
 <div class="row">
     <div class="col-md-3"></div>

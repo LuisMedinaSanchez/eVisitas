@@ -22,11 +22,12 @@ class ControlSesion {
         }
         session_destroy();
     }
-    public static function sesion_iniciada(){
+
+    public static function sesion_iniciada() {
         if (session_id() == '') {
             session_start();
         }
-        if (isset($_SESSION['id_usuario'])&& isset($_SESSION['nombre_usuario'])) {
+        if (isset($_SESSION['id_usuario']) && isset($_SESSION['nombre_usuario'])) {
             return true;
         } else {
             return false;

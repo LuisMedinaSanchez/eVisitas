@@ -1,12 +1,25 @@
 <?php
-$titulo = '¡Visita registrada!';
+$titulo = '¡Bienvenido!';
 include_once 'app/config.inc.php';
 include_once 'app/Conexion.inc.php';
 include_once 'app/RepositorioUsuario.inc.php';
 include_once 'app/redireccion.inc.php';
-include_once 'app/ControlSesion.inc.php';
+include_once 'app/config.inc.php';
+include_once 'app/Conexion.inc.php';
+include_once 'app/RepositorioUsuario.inc.php';
+include_once 'app/redireccion.inc.php';
+include_once 'app/Conexion.inc.php';
+include_once 'app/RepositorioUsuario.inc.php';
 include_once 'plantillas/documento-declaracion.inc.php';
-include_once 'plantillas/navbar_inicio.inc.php';
+include_once 'plantillas/nanbar_sesion_iniciada.inc.php';
+include_once 'app/ControlSesion.inc.php';
+include_once 'app/config.inc.php';
+include_once 'app/Conexion.inc.php';
+include_once 'app/RepositorioUsuario.inc.php';
+include_once 'app/ValidadorLogin.inc.php';
+include_once 'app/ControlSesion.inc.php';
+include_once 'app/redireccion.inc.php';
+include_once 'ControlSesion.inc.php';
 //include_once 'app/redireccion.inc.php';
 //Vamos a comprobar que la variable nombre este iniciada, y que no este vacia
 if (isset($_GET['nombre']) && !empty($_GET['nombre'])) {
@@ -20,6 +33,8 @@ if (ControlSesion::sesion_iniciada()) {
 } else {
     Redireccion::redirigir(SERVIDOR);
 }
+include_once 'plantillas/documento-declaracion.inc.php';
+include_once 'plantillas/navbar_inicio.inc.php';
 ?>
 <div class="container">
     <div class="row">
@@ -29,9 +44,9 @@ if (ControlSesion::sesion_iniciada()) {
                     <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Registro correcto
                 </div>
                 <div class="panel-body text-center">
-                    <p>¡<b><?php echo $nombre; ?></b> se ha registrado correctamente!</p>
+                    <p>¡Gracias por registrarte <b><?php echo $nombre; ?></b>!</p>
                     <br>
-                    <p><a href="<?php echo RUTA_SESION_INICIADA ?>">Regresar al inicio</a> o <a href="<?php echo RUTA_REGISTRO_VISITAS ?>">añadir otra visita</a> </p>
+                    <p><a href="<?php echo RUTA_HISTORICO_VISITAS ?>">Otra visita?</a></p>
                 </div>
             </div>
         </div>

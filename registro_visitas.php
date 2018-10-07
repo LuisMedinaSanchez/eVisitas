@@ -1,4 +1,5 @@
 <?php
+$titulo = 'Registro de visitas';
 include_once 'app/config.inc.php';
 include_once 'app/Conexion.inc.php';
 include_once 'app/RepositorioUsuario.inc.php';
@@ -11,16 +12,13 @@ if (ControlSesion::sesion_iniciada()) {
 } else {
     Redireccion::redirigir(SERVIDOR);
 }
-$titulo = 'Registro de visitas';
 
 include_once 'plantillas/documento-declaracion.inc.php';
 include_once 'plantillas/navbar_inicio.inc.php';
 ?>
-
 <div class="container">
     <h4 class="text-center">Registro de visitas</h4>
 </div>
-
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-center">
@@ -34,7 +32,6 @@ include_once 'plantillas/navbar_inicio.inc.php';
                     <form role="form" method="post" action="app/registrar.php">
                         <div id="collapseOne" class="">
                             <div class="panel-body">
-
                                 <div class="row">
                                     <div class="form-group">
                                         <div class="col-md-6">
@@ -47,7 +44,6 @@ include_once 'plantillas/navbar_inicio.inc.php';
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="form-group">
                                         <div class="col-md-4">
@@ -56,32 +52,55 @@ include_once 'plantillas/navbar_inicio.inc.php';
                                                 <option value="" selected>Seleccione a alguien</option>
                                                 <option value="97" >Luis Medina Sánchez (Sub. Gerente de sistemas)</option></select>
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-md-4">
                                             <label><strong class="text-danger" style="font-size: 20px">*</strong> Asunto</label>	
                                             <input type="text" required="required" value='' class="form-control" id="asunto" name="asunto">
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
                                             <label><strong class="text-danger" style="font-size: 20px">*</strong> Hora de visita:</label>
                                             <input type="time" required="required" value=''  class="form-control" id="hor_visita" name="hor_visita">
                                         </div>
+                                        <div class="col-md-2">
+                                            <label><strong class="text-danger" style="font-size: 20px"></strong> Hora de atencion:</label>
+                                            <input type="time" value='' class="form-control" id="hor_atencion" name="hor_atencion">
+                                        </div>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="form-group">
-                                        <div class="col-md-9">
+                                        <div class="col-md-8">
                                             <label><strong class="text-danger" style="font-size: 20px"></strong> Observaciones</label>
                                             <input type="text" value=''  class="form-control" id="observaciones" name="observaciones">
                                         </div>
-                                        <div class="col-md-3">
-                                            <label><strong class="text-danger" style="font-size: 20px"></strong> Hora de atencion:</label>
-                                            <input type="time" value='' class="form-control" id="hor_atencion" name="hor_atencion">
+                                        <div class="col-md-2">
+                                            <label><strong class="text-danger" style="font-size: 20px">*</strong> Tipo de visita </label>
+                                            <select required="required" class="form-control"  id="per_visita" name="tip_visita" >
+                                                <option value="" selected>Proveedor/Visita</option>
+                                                <option value="1" >Proveedor</option>
+                                                <option value="2" >Visita</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label><strong class="text-danger" style="font-size: 20px">*</strong> Gafete </label>
+                                            <select required="required" class="form-control"  id="per_visita" name="num_gafete" >
+                                                <option value=""selected>No.</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>
                                         </div>
 
                                     </div>												
                                 </div>
-
-
                                 <div class="row">
                                     <br>
                                     <div class="form-group">
@@ -92,7 +111,7 @@ include_once 'plantillas/navbar_inicio.inc.php';
                                                 <div class="row">
                                                     <div class="col-md-12"></div>
                                                 </div>
-                                                <input id="inefront" accept="image/*" name='inefront' type="file" style="display:none" onchange="$('#uploadfront').show();$('#error_inefront').tooltip('hide');">
+                                                <input id="inefront" accept="image/*" name='fot_visita' type="file" style="display:none" onchange="$('#uploadfront').show();$('#error_inefront').tooltip('hide');">
                                                 Tomar o subir foto                                                        
                                                 <span style="display: none;" id="uploadfront" class="fa fa-check text-color-primary"></span>
                                             </label>
@@ -103,7 +122,7 @@ include_once 'plantillas/navbar_inicio.inc.php';
                                                 <div class="row">
                                                     <div class="col-md-12"></div>
                                                 </div>
-                                                <input id="ineback" accept="image/*" name='ineback' type="file" style="display:none" onchange="$('#uploadback').show();$('#error_ineback').tooltip('hide')">
+                                                <input id="ineback" accept="image/*" name='fot_ide_visita' type="file" style="display:none" onchange="$('#uploadback').show();$('#error_ineback').tooltip('hide')">
                                                 Tomar foto o subir INE
                                                 <span style="display: none;" id="uploadback" class="fa fa-check text-color-primary"></span>
                                             </label>
@@ -111,7 +130,6 @@ include_once 'plantillas/navbar_inicio.inc.php';
                                         <div class="col-md-3"></div>
                                     </div>
                                 </div>
-
                                 <br>
                                 <div class="row">
                                     <div class="form-group">
@@ -121,13 +139,9 @@ include_once 'plantillas/navbar_inicio.inc.php';
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
-
                     </form>
-
                 </div>
             </div>
         </div>

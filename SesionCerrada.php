@@ -1,4 +1,5 @@
 <?php
+$titulo = '¡Nos vemos!';
 include_once 'app/config.inc.php';
 include_once 'app/Conexion.inc.php';
 include_once 'app/RepositorioUsuario.inc.php';
@@ -8,7 +9,6 @@ include_once 'app/redireccion.inc.php';
 if (ControlSesion::sesion_iniciada()) {
     ControlSesion::cerrar_sesion();
 }
-$titulo = '¡Nos vemos!';
 include_once 'plantillas/documento-declaracion.inc.php';
 include_once 'plantillas/navbar_index.inc.php';
 ?>
