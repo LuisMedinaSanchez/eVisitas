@@ -29,7 +29,7 @@ include_once 'plantillas/navbar_inicio.inc.php';
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form role="form" method="post" action="app/registrar.php">
+                    <form role="form" method="post" enctype="multipart/form-data" action="app/registrar.php">
                         <div id="collapseOne" class="">
                             <div class="panel-body">
                                 <div class="row">
@@ -105,28 +105,24 @@ include_once 'plantillas/navbar_inicio.inc.php';
                                     <br>
                                     <div class="form-group">
                                         <div class="col-md-3" ></div>
+
+
                                         <div class="col-md-3">
-                                            <label type="button" class="firstbtn btn btn-warning btn-lg pull-left" for="inefront" id="lblinefront">
-                                                <div class="" id="error_inefront"></div>
-                                                <div class="row">
-                                                    <div class="col-md-12"></div>
-                                                </div>
-                                                <input id="inefront" accept="image/*" name='fot_visita' type="file" style="display:none" onchange="$('#uploadfront').show();$('#error_inefront').tooltip('hide');">
+                                            <label type="button" class="btn btn-danger">
+                                                <input id="fot_visita" accept="imagen" name='fot_visita' type="file" style="display:none">
                                                 Tomar o subir foto                                                        
-                                                <span style="display: none;" id="uploadfront" class="fa fa-check text-color-primary"></span>
                                             </label>
                                         </div>
+
+
                                         <div class="col-md-3">
-                                            <label type="button" class="firstbtn btn btn-warning btn-lg pull-left" for="ineback" id="lblineback">
-                                                <div class="" id="error_ineback"></div>
-                                                <div class="row">
-                                                    <div class="col-md-12"></div>
-                                                </div>
-                                                <input id="ineback" accept="image/*" name='fot_ide_visita' type="file" style="display:none" onchange="$('#uploadback').show();$('#error_ineback').tooltip('hide')">
+                                            <label type="button" class="btn btn-danger">
+                                                <input id="fot_ide_visita" accept="imagen" name='fot_ide_visita' type="file" style="display:none">
                                                 Tomar foto o subir INE
-                                                <span style="display: none;" id="uploadback" class="fa fa-check text-color-primary"></span>
                                             </label>
                                         </div>
+
+
                                         <div class="col-md-3"></div>
                                     </div>
                                 </div>
@@ -134,8 +130,8 @@ include_once 'plantillas/navbar_inicio.inc.php';
                                 <div class="row">
                                     <div class="form-group">
                                         <div class="col-md-12">
-                                            <button type="submit" class="btn btn-default btn-primary" name="registrar">Enviar</button>
-                                            <button type="reset" class="btn btn-default btn-primary">Limpiar formulario</button>
+                                            <button type="submit" class="btn btn-default btn-primary btn-lg" name="registrar">Enviar</button>
+                                            <button type="reset" class="btn btn-default btn-primary btn-lg">Limpiar formulario</button>
                                         </div>
                                     </div>
                                 </div>
