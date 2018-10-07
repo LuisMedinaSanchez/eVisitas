@@ -96,7 +96,7 @@
             <div class="form-group">
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-default btn-primary" name="enviar">Enviar</button>
-                    <button href="index.php" class="btn btn-default btn-primary">Limpiar formulario</button>
+                    <button type="reset" class="btn btn-default btn-primary">Limpiar formulario</button>
                 </div>
             </div>
         </div>
