@@ -48,7 +48,7 @@ include_once 'plantillas/nanbar_sesion_iniciada.inc.php';
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-                        Introduce los datos de la visita
+                        Introduce los datos del nuevo usuario
                     </h3>
                 </div>
                 <div class="panel-body">

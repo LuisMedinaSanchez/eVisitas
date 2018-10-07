@@ -48,7 +48,7 @@ include_once 'plantillas/navbar_index.inc.php';
                           <br>
                         <label for="email" class="sr-only">Email</label>
                         <label>Cuenta de correo</label>
-                        <input tipe="email" name="email" id="email" class="form-control" placeholder="Introduce tu correo"
+                        <input type="email" name="email" id="email" class="form-control" placeholder="ejemplo@transpheric.com"
                         <?php
                         if (isset($_POST['login']) && isset($_POST['email']) && !empty($_POST['email'])) {
                             echo 'value="' . $_POST['email'] . '"';

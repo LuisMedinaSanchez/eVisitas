@@ -21,7 +21,7 @@ class repositoriousuario {
                 if (count($resultado)) {
                     foreach ($resultado as $fila) {
                         $usuarios[] = new Usuario(
-                                $fila['id_usuario'], $fila['nombre'], $fila['email'], $fila['password'], $fila['fecha_registro'], $fila['activo']
+                                $fila['id_usuarios'], $fila['nombre'], $fila['email'], $fila['password'], $fila['fecha_registro'], $fila['activo']
                         );
                     }
                 } else {
@@ -134,7 +134,7 @@ class repositoriousuario {
                 $sentencia->execute();
                 $resultado = $sentencia -> fetch();
                 if (!empty($resultado)){
-                    $usuario = new usuario($resultado['id_usuario'],
+                    $usuario = new usuario($resultado['id_usuarios'],
                             $resultado['nombre'],
                             $resultado['email'],
                             $resultado['password'],
