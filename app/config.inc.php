@@ -13,3 +13,5 @@ define("RUTA_SALIDA_VISITAS", SERVIDOR."/salida_visitas");
 define("RUTA_HISTORICO_VISITAS", SERVIDOR."/historico_visitas");
 define("RUTA_REGISTRO_USUARIOS", SERVIDOR."/RegistroUsuarios");
 define("RUTA_SUBIDAS", SERVIDOR."/upload/");
+define("RUTA_MODIFICAR", SERVIDOR."/modificar");
+define("RUTA_CAMBIOS", SERVIDOR."/cambio_correcto");

@@ -15,14 +15,13 @@ Conexion:: cerrar_conexion();
                 <span class="icon-bar"></span>
             </button>
             <img alt="Porto" width="250" data-sticky-width="98" data-sticky-top="33" src="http://transpheric.com/dd/public/frontend/img/logo.png">
+            <span class="glyphicon glyphicon-user" aria-hidden="true">Visitas: <?php echo count($usuarios); ?></span>
         </div>
         <div id="navbar" class="navbar-collapse collapse" >
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo RUTA_REGISTRO_USUARIOS ?>">Usuarios</a></li>
+                <!--<li><a href="<?php echo RUTA_REGISTRO_USUARIOS ?>">Usuarios</a></li>-->
                 <li><a href="<?php echo RUTA_LOGIN_CIERRE ?>">Cerrar sesión</a></li>
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span><li>Visitas activas: </li><?php echo count($usuarios); ?>
-                
             </ul>
         </div>
     </div>
