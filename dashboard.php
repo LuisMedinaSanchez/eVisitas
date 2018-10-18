@@ -21,7 +21,7 @@ if (ControlSesion::sesion_iniciada()) {
     <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading" id="encabezado">
-                <span class="glyphicon glyphicon-link" aria-hidden="true"></span> Enlaces...  
+                <span class="glyphicon glyphicon-link" aria-hidden="true"></span> Registro de visitas 
             </div>
             <div class="panel-body">
                 <ul>
@@ -33,6 +33,30 @@ if (ControlSesion::sesion_iniciada()) {
                     </li>
                     <li>
                         <a href="<?php echo RUTA_HISTORICO_VISITAS ?>">Historico</a>
+                    </li>
+                </ul>
+            </div>
+        </div>    
+    </div>
+    <div class="col-md-3"></div>
+</div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading" id="encabezado">
+                <span class="glyphicon glyphicon-link" aria-hidden="true"></span> Reportes  
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li>
+                        <a href="<?php echo RUTA_PREVIOS ?>">Reporte de previos</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo RUTA_REMESAS ?>">Remesas Toluca</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo RUTA_CLIENTE_ESPEJO ?>">Reparar claves de cliente</a>
                     </li>
                 </ul>
             </div>

@@ -66,7 +66,7 @@ include_once 'plantillas/navbar_index.inc.php';
         </div>
     </div>
 </div>
-<div class="text-center" class="copyright"> 2018 &copy; Luis Medina. </div>
+<!--<div class="text-center" class="copyright"> 2018 &copy; Luis Medina. </div>-->
 <?php
 include_once 'plantillas/documento-cierre.inc.php';
 ?>
