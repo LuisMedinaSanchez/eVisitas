@@ -17,6 +17,8 @@ if (ControlSesion::sesion_iniciada()) {
 }
 include_once 'plantillas/documento-declaracion.inc.php';
 include_once 'plantillas/navbar_reportes.inc.php';
+$hori_inic = $_REQUEST['hori_inic'];
+$hor_fina = $_REQUEST['hor_fina'];
 ?>
 
 <div class="row">
@@ -29,23 +31,26 @@ include_once 'plantillas/navbar_reportes.inc.php';
             </div>
             <br>
             <div class="row">
-                <div class="form-group">
-                    <form role="form" method="post" action="remesas_buscada?hori_inic&hor_fina">
-                        <div class="col-md-1">Fechas de pago</div>
-                        <div class="col-md-2">
-                            <label>Fecha de inicio</label>
-                            <input required="required" type="date" required="required" value=''  class="form-control" id="hori_inic" name="hori_inic">
-                        </div>
-                        <div class="col-md-2">
-                            <label>Fecha de inicio</label>
-                            <input required="required" type="date" value='' class="form-control" id="hor_atencion" id="hor_fina" name="hor_fina">
-                        </div>
-                        <div class="col-md-1">
-                            <button class="btn btn-default btn-primary" name="Consultar">Consultar</button>
-                        </div>
-                    </form>
+                    <div class="form-group">
+                        <form role="form" method="post" action="remesas_buscada?hori_inic&hor_fina">
+                            <div class="col-md-1">Fechas de pago</div>
+                            <div class="col-md-2">
+                                <label>Fecha de inicio</label>
+                                <input required="required" type="date" required="required" value='<?php echo $_REQUEST['hori_inic']; ?>'  class="form-control" id="hori_inic" name="hori_inic">
+                            </div>
+                            <div class="col-md-2">
+                                <label>Fecha de inicio</label>
+                                <input required="required" type="date" value='<?php echo $_REQUEST['hor_fina']; ?>' class="form-control" id="hor_atencion" id="hor_fina" name="hor_fina">
+                            </div>
+                            <div class="col-md-1">
+                                <button class="btn btn-default btn-primary" name="Consultar">Consultar</button>
+                            </div>
+                            <div class="col-md-1">
+                                <a href="#"><img src="resources/xls-icon.png" onclick="tableToExcel('facturacion', 'Facturacion FedEx')" value="Export to Excel" style="width:40px;height:40px"></a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
             <div class="panel-body">
                 <form role="form" method="post">
                     <div id="collapseOne" class="">
@@ -99,7 +104,7 @@ from saaio_pedime p
 left outer join ctrac_client c ON p.cve_impo = c.cve_imp
 left outer join saaio_guias g ON p.num_refe = g.num_refe
 left outer join ctrao_etapas h ON p.num_refe = h.num_refe
-where p.ADU_DESP='650' and c.cve_comi='FED' and p.fec_pago BETWEEN '08/30/2001' AND '09/01/2001' and h.cve_etap='130'
+where p.ADU_DESP='650' and c.cve_comi='FED' and p.fec_pago BETWEEN '$hori_inic' AND '$hor_fina' and h.cve_etap='130'
 ";
                                     $resultado = ibase_query($conexion_casa, $sql);
 
@@ -146,6 +151,3 @@ where p.ADU_DESP='650' and c.cve_comi='FED' and p.fec_pago BETWEEN '08/30/2001' 
 //incluimos la parte para cerrar el cuerpo de la pagina para no tener que volver a meter codigo
 include_once 'plantillas/documento-cierre.inc.php';
 ?>
-
-
-

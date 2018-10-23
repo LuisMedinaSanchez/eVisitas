@@ -41,11 +41,11 @@ $hor_fina = $_REQUEST['hor_fina'];
                             <div class="col-md-1"></div>
                             <div class="col-md-2">
                                 <label>Fecha de inicio</label>
-                                <input required="required" type="date" required="required" value='<?php echo $_REQUEST['hori_inic'];?>'  class="form-control" id="hori_inic" name="hori_inic">
+                                <input required="required" type="date" required="required" value='<?php echo $_REQUEST['hori_inic']; ?>'  class="form-control" id="hori_inic" name="hori_inic">
                             </div>
                             <div class="col-md-2">
                                 <label>Fecha de inicio</label>
-                                <input required="required" type="date" value='<?php echo $_REQUEST['hor_fina'];?>' class="form-control" id="hor_atencion" id="hor_fina" name="hor_fina">
+                                <input required="required" type="date" value='<?php echo $_REQUEST['hor_fina']; ?>' class="form-control" id="hor_atencion" id="hor_fina" name="hor_fina">
                             </div>
                             <div class="col-md-1">
                                 <button class="btn btn-default btn-primary" name="Consultar">Consultar</button>
@@ -69,12 +69,13 @@ $hor_fina = $_REQUEST['hor_fina'];
                                             <th>FECHA Y HORA DE INICIO</th>
 <!--                                            <th>HORA INICIO</th>-->
                                             <th>FECHA Y HORA DE FIN</th>
-<!--                                            <th>HORA FIN</th>-->
+                                            <th>TIEMPO USADO</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         $sql = "
+  /* Consulta aterior y muy tardada                                         
 SELECT
       h.num_refe  AS REFERENCIA,
       (SELECT COUNT(cons_part) FROM ctrao_prevpar WHERE (num_refe = t.num_refe)) AS PARTIDAS,
@@ -82,10 +83,26 @@ SELECT
       h.hori_inic AS FECHA_INICIO,
       h.hori_inic AS HORA_INICIO,  
       h.hor_fina  AS FECHA_FIN,
-      h.hor_fina  AS HORA_FIN
+      h.hor_fina  AS HORA_FIN,
+      DATEDIFF(minute, h.hori_inic, h.hor_fina) AS TIEMPO
 FROM ctrao_recoage h
 RIGHT OUTER JOIN ctrao_prevpar t ON t.num_refe = h.num_refe
 RIGHT OUTER JOIN ctrac_depend p ON t.cve_usua =  p.usu_depe
+WHERE h.hori_inic BETWEEN '08/01/2018 00:00:00' AND '08/01/2018 23:59:00'
+ORDER BY partidas*/
+
+
+SELECT
+      h.num_refe  AS REFERENCIA,
+      (SELECT COUNT(cons_part) FROM ctrao_prevpar WHERE (num_refe = t.num_refe)) AS PARTIDAS,
+      t.cve_usua  AS TRAMITADOR,
+      h.hori_inic AS FECHA_INICIO,
+      h.hori_inic AS HORA_INICIO,  
+      h.hor_fina  AS FECHA_FIN,
+      h.hor_fina  AS HORA_FIN,
+      DATEDIFF(minute, h.hori_inic, h.hor_fina) AS TIEMPO
+FROM ctrao_recoage h
+RIGHT OUTER JOIN ctrao_prevpar t ON t.num_refe = h.num_refe
 WHERE h.hori_inic BETWEEN '$hori_inic 00:00:01' AND '$hor_fina 23:59:59' 
 ORDER BY partidas";
                                         $resultado = ibase_query($conexion_casa, $sql);
@@ -97,12 +114,15 @@ ORDER BY partidas";
                                                 <td><?php echo $mostrar->PARTIDAS ?></td>
                                                 <td><?php echo $mostrar->TRAMITADOR ?></td>
                                                 <td><?php echo $mostrar->FECHA_INICIO ?></td>
-<!--                                                <td><?php echo $mostrar->HORA_INICIO ?></td>-->
+    <!--                                                <td><?php echo $mostrar->HORA_INICIO ?></td>-->
                                                 <td><?php echo $mostrar->FECHA_FIN ?></td>
-<!--                                                <td><?php echo $mostrar->HORA_FIN ?></td>-->
+                                                <td><?php echo $mostrar->TIEMPO ?></td>
                                             </tr>
                                             <?php
                                         }
+                                        ibase_close();
+                                        if (!$conexion_casa)
+                                            echo 'conexion a BD no cerrada';
                                         ?>
                                     </tbody>
                                 </table>

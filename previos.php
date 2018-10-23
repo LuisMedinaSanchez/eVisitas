@@ -63,6 +63,7 @@ include_once 'plantillas/navbar_reportes.inc.php';
                                             <th>TRAMITADOR</th>
                                             <th>FECHA Y HORA DE INICIO</th>
                                             <th>FECHA Y HORA DE FIN</th>
+                                            <th>TIEMPO USADO</th>
                                         </tr>
                                     </thead>
                                     <tbody>
