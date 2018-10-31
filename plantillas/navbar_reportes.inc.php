@@ -1,3 +1,11 @@
+<?php
+include_once 'app/ControlSesion.inc.php';
+if (ControlSesion::sesion_iniciada()) {
+    
+} else {
+    Redireccion::redirigir(SERVIDOR);
+}
+?>
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">

@@ -1,7 +1,4 @@
 ﻿<?php
-$conexion_casa = ibase_connect("192.36.46.1:c:\__DATOS__\CASA\DB\CASA.GDB", "ADMIN", "admin");
-//if (!$conexion_casa){
-//    echo "acceso denegado";
-//    }
-//    echo "acceso";
-//    ?>
+//Conexion a la BD de sistemas CASA
+$conexion_casa = ibase_connect("localhost:C:\__DATOS__\CASA\DB\CASA.GDB", "ADMIN", "admin","WIN1251");
+?>

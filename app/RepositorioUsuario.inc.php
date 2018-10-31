@@ -21,7 +21,7 @@ class repositoriousuario {
                 if (count($resultado)) {
                     foreach ($resultado as $fila) {
                         $visitas[] = new Visita(
-                                $fila['id_visitas'], $fila['fec_visita'], $fila['nom_visitas'], $fila['ide_oficial'], $fila['per_visita'], $fila['asunto'], $fila['hor_visita'], $fila['observaciones'], $fila['hor_atencion'], $fila['tip_visita'], $fila['num_gafete'], $fila['fot_visita'], $fila['fot_ide_visita'], $fila['hor_salida'], $fila['activo']
+                                $fila['id_visitas'], $fila['fec_visita'], $fila['nom_visitas'], $fila['ide_oficial'], $fila['per_visita'], $fila['asunto'], $fila['observaciones'], $fila['hor_atencion'], $fila['tip_visita'], $fila['num_gafete'], $fila['fot_visita'], $fila['fot_ide_visita'], $fila['hor_salida'], $fila['activo']
                         );
                     }
                 } else {
@@ -32,6 +32,36 @@ class repositoriousuario {
             }
         }
         return $visitas;
+    }
+        //esta funcion es para el contar los usuarios que no se ha terminado de registrar
+    public static function obtener_falta_registro($conexion) {
+
+        $visitas_falta = array();
+
+        if (isset($conexion)) {
+            try {
+
+                include_once 'visita.php';
+
+                $sql = "SELECT * FROM visitas WHERE ide_oficial IS NULL AND activo = 1";
+                $sentencia = $conexion->prepare($sql);
+                $sentencia->execute();
+                $resultado = $sentencia->fetchAll();
+
+                if (count($resultado)) {
+                    foreach ($resultado as $fila) {
+                        $visitas_falta[] = new Visita(
+                                $fila['id_visitas'], $fila['fec_visita'], $fila['nom_visitas'], $fila['ide_oficial'], $fila['per_visita'], $fila['asunto'], $fila['observaciones'], $fila['hor_atencion'], $fila['tip_visita'], $fila['num_gafete'], $fila['fot_visita'], $fila['fot_ide_visita'], $fila['hor_salida'], $fila['activo']
+                        );
+                    }
+                } else {
+                    print'';
+                }
+            } catch (PDOException $ex) {
+                print "ERROR" . $ex->getMessage();
+            }
+        }
+        return $visitas_falta;
     }
     //esta funcion es para agregar usuarios a la BD
     public static function insertar_usuario($conexion, $usuario) {
@@ -58,7 +88,37 @@ class repositoriousuario {
         }
         return $usuario_insertado;
     }
+    //Esta funcion es para contar todas las visitas
+    public static function obtener_todos_historico($conexion) {
 
+        $visitas_historico = array();
+
+        if (isset($conexion)) {
+            try {
+
+                include_once 'visita.php';
+
+                $sql = "SELECT * FROM visitas WHERE activo = 0";
+                $sentencia = $conexion->prepare($sql);
+                $sentencia->execute();
+                $resultado = $sentencia->fetchAll();
+
+                if (count($resultado)) {
+                    foreach ($resultado as $fila) {
+                        $visitas_historico[] = new Visita(
+                                $fila['id_visitas'], $fila['fec_visita'], $fila['nom_visitas'], $fila['ide_oficial'], $fila['per_visita'], $fila['asunto'], $fila['observaciones'], $fila['hor_atencion'], $fila['tip_visita'], $fila['num_gafete'], $fila['fot_visita'], $fila['fot_ide_visita'], $fila['hor_salida'], $fila['activo']
+                        );
+                    }
+                } else {
+                    print'';
+                }
+            } catch (PDOException $ex) {
+                print "ERROR" . $ex->getMessage();
+            }
+        }
+        return $visitas_historico;
+    }
+    //esta funcion es para ver si al logearseel correo es correcto
     public static function email_existe($conexion, $email) {
         $email_existe = true;
 
@@ -86,7 +146,7 @@ class repositoriousuario {
         }
         return $email_existe;
     }
-
+    
     public static function obtener_usuario_por_email($conexion, $email) {
         $usuario = null;
         if (isset($conexion)) {

@@ -1,18 +1,14 @@
 <?php
-$titulo = 'Transpheric Logistics';
-//Incluimos configuracion que nos ayudara con la conexion a la BD y direcciones
+$titulo = 'Registro de visitas';
 include_once 'app/config.inc.php';
-//Incluimos la conexion a la BD para hacer el acceso a la pagina
 include_once 'app/Conexion.inc.php';
-//Incluimos el validador para mandar los mensajes de error cuando el login es incorrecto
+include_once 'app/RepositorioUsuario.inc.php';
 include_once 'app/ValidadorLogin.inc.php';
-//Incluimos el control de sesion para el control de la visita a las paginas
 include_once 'app/ControlSesion.inc.php';
-//Incluimos la redireccion, para saber que hacer con las visitas a la pagina
 include_once 'app/redireccion.inc.php';
-//Si la clase y funcion estan iniciadas, mandar a la pagina del usuario
+
 if (ControlSesion::sesion_iniciada()) {
-    Redireccion::redirigir(RUTA_DASHBOARD);
+    Redireccion::redirigir(RUTA_SESION_INICIADA);
 }
 
 if (isset($_POST['login'])) {
@@ -25,13 +21,13 @@ if (isset($_POST['login'])) {
         //si son correctos el login, se controla la sesion
         ControlSesion::iniciar_sesion(
                 $validador->obtener_usuario()->obtener_id_usuario(), $validador->obtener_usuario()->obtener_nombre());
-        Redireccion::redirigir(RUTA_DASHBOARD);
+        Redireccion::redirigir(RUTA_SESION_INICIADA);
     }
     Conexion::cerrar_conexion();
 }
 
-include_once 'plantillas/declaracion_index.php';
-include_once 'plantillas/navbar_index.php';
+include_once 'plantillas/documento-declaracion.inc.php';
+include_once 'plantillas/navbar_index.inc.php';
 ?>
 <div class="container">
     <div class="row">
@@ -40,12 +36,13 @@ include_once 'plantillas/navbar_index.php';
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
-                    <h4>Ingresa a tu cuenta</h4>
+                    <h4>Iniciar sesión</h4>
                 </div>
                 <div class="panel-body">
                     <form role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <label for="email" class="sr-only">Email</label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Email"
+                        <label>Cuenta de correo</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="ejemplo@transpheric.com"
                         <?php
                         if (isset($_POST['login']) && isset($_POST['email']) && !empty($_POST['email'])) {
                             echo 'value="' . $_POST['email'] . '"';
@@ -53,6 +50,7 @@ include_once 'plantillas/navbar_index.php';
                         ?>required autofocus>
                         <br>
                         <label for="clave" class="sr-only">Contraseña</label>
+                        <label>Contraseña</label>
                         <input type='password' name="clave" id="clave" class="form-control" placeholder="Contraseña">
                         <br>
                         <?php
@@ -60,7 +58,7 @@ include_once 'plantillas/navbar_index.php';
                             $validador->mostrar_error();
                         }
                         ?>
-                        <button type="submit" name="login" class="btn btn-lg btn-primary btn-block">Login</button>
+                        <button type="submit" name="login" class="btn btn-lg btn-primary btn-block">Iniciar seción</button>
                     </form>
                 </div>
             </div>
@@ -68,6 +66,7 @@ include_once 'plantillas/navbar_index.php';
         </div>
     </div>
 </div>
+<!--<div class="text-center" class="copyright"> 2018 &copy; Luis Medina. </div>-->
 <?php
-include_once 'plantillas/cierre_index.php';
+include_once 'plantillas/documento-cierre.inc.php';
 ?>

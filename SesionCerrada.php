@@ -2,15 +2,14 @@
 $titulo = '¡Nos vemos!';
 include_once 'app/config.inc.php';
 include_once 'app/Conexion.inc.php';
-include_once 'app/RepositorioUsuario.inc.php';
-include_once 'app/ValidadorLogin.inc.php';
 include_once 'app/ControlSesion.inc.php';
 include_once 'app/redireccion.inc.php';
+//con este if, cerramos secion al cargar la pagina de sesioncerrada.php
 if (ControlSesion::sesion_iniciada()) {
     ControlSesion::cerrar_sesion();
 }
-include_once 'plantillas/documento-declaracion.inc.php';
-include_once 'plantillas/navbar_index.inc.php';
+include_once 'plantillas/declaracion_index.php';
+include_once 'plantillas/navbar_index.php';
 ?>
 <div class="container">
     <div class="row">
@@ -18,7 +17,7 @@ include_once 'plantillas/navbar_index.inc.php';
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading" class="text-center">
-                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Sesión cerrada!
+                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> ¡Sesión cerrada!
                 </div>
                 <div class="panel-body text-center">
                     <br>
@@ -30,5 +29,5 @@ include_once 'plantillas/navbar_index.inc.php';
     </div>
 </div>     
 <?php
-include_once 'plantillas/documento-cierre.inc.php';
+include_once 'plantillas/cierre_index.php';
 ?>
