@@ -1,10 +1,13 @@
 Configuraciones generales.
 
-1. -Activar en el archivo php.ini las extenciones para la conexion
-a las bd de sistemas CASA:
+1. -Activar en el archivo php.ini las extenciones para la conexion a las bd de sistemas CASA:
 extension=pdo_firebird
 extension=interbase
 
 
-2. -Aumentar el tamaño de las peticiones POST en el archivo
+2. -Aumentar el tamaño de las peticiones POST en el archivo para las fotos de las visitas
 php.ini donde la linea sea "post_max_size" y "upload_max_filesize"
+
+3. -Cambiar la ruta del formulario en el registro de visitas.
+
+4. -Cambiar la ruta de la carpeta donde se guardan las fotos y el archivo config.php

@@ -1,9 +1,8 @@
 <?php
 $titulo = 'Visitas';
 //Esta hoja es para mostrar una barra de navegacion diferene a la del index y es para el menú principal
-include_once 'plantillas/declaracion.php';
-include_once '../plantillas/navbar_index.php';
-include_once '../plantillas/navbar_opciones.php';
+include_once 'plantillas/a.php';
+include_once '../plantillas/navbar.php';
 //Funciones de la pagina
 Conexion::abrir_conexion();
 $visitas = RepositorioUsuario :: obtener_todos(Conexion::obtener_conexion());
@@ -42,5 +41,5 @@ Conexion:: cerrar_conexion();
     <div class="col-md-5"></div>
 </div>
 <?php
-include_once 'plantillas/cierre.php';
+include_once 'plantillas/z.php';
 ?>

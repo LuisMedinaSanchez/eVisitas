@@ -1,31 +1,10 @@
 <?php
 $titulo = 'Busqueda de visitas';
-include_once '../app/config.inc.php';
-include_once '../app/Conexion.inc.php';
-include_once '../app/Usuario.inc.php';
-include_once '../app/RepositorioUsuario.inc.php';
-include_once '../app/ValidadorRegistro.inc.php';
-include_once '../app/redireccion.inc.php';
-include_once '../app/ControlSesion.inc.php';
-include_once '../app/cn.php';
-//Para evitar registrar usuarios sin autorizacion
-if (ControlSesion::sesion_iniciada()) {
-    
-} else {
-    Redireccion::redirigir(SERVIDOR);
-}
-include_once 'plantillas/declaracion.php';
-include_once '../plantillas/navbar_index.php';
-include_once '../plantillas/navbar_opciones.php';
+include_once 'plantillas/a.php';
+include_once '../plantillas/navbar.php';
 $nom_visita = $_REQUEST['nom_visita'];
-
 ?>
-
-
 <br>
-
-
-
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-center">
@@ -91,10 +70,7 @@ $nom_visita = $_REQUEST['nom_visita'];
         </div>
     </div>
 </div>
-
 <?php
 //incluimos la parte para cerrar el cuerpo de la pagina para no tener que volver a meter codigo
-include_once 'plantillas/cierre.php';
+include_once 'plantillas/z.php';
 ?>
-
-

@@ -1,24 +1,8 @@
 ﻿<?php
-$titulo = 'Reporte de remesas';
-include_once 'app/config.inc.php';
-include_once 'app/Conexion.inc.php';
-//include_once 'app/Usuario.inc.php';
-//include_once 'app/RepositorioUsuario.inc.php';
-//include_once 'app/ValidadorRegistro.inc.php';
-include_once 'app/redireccion.inc.php';
-include_once 'app/ControlSesion.inc.php';
-//include_once 'app/cn.php';
-include_once 'app/cn_casa.php';
-//Para evitar registrar usuarios sin autorizacion
-if (ControlSesion::sesion_iniciada()) {
-    
-} else {
-    Redireccion::redirigir(SERVIDOR);
-}
-include_once 'plantillas/documento-declaracion.inc.php';
-include_once 'plantillas/navbar_reportes.inc.php';
+$titulo = "Remesas";
+include_once '../plantillas/a.php';
+include_once '../../plantillas/navbar.php';
 ?>
-
 <div class="row">
     <div class="col-md-12 text-center">
         <div class="panel panel-default">
@@ -140,12 +124,6 @@ where p.ADU_DESP='650' and c.cve_comi='FED' and p.fec_pago BETWEEN '08/30/2001' 
         </div>
     </div>
 </div>
-
-
 <?php
-//incluimos la parte para cerrar el cuerpo de la pagina para no tener que volver a meter codigo
-include_once 'plantillas/documento-cierre.inc.php';
+include_once '../plantillas/z.php';
 ?>
-
-
-

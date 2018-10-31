@@ -1,18 +1,8 @@
 <?php
-include_once '../app/config.inc.php';
-include_once '../app/Conexion.inc.php';
-include_once '../app/RepositorioUsuario.inc.php';
-include_once '../app/redireccion.inc.php';
-include_once '../app/Usuario.inc.php';
-include_once '../app/ValidadorRegistro.inc.php';
-include_once '../app/ControlSesion.inc.php';
-include_once '../app/cn.php';
-//Para evitar registrar usuarios sin autorizacion
-if (ControlSesion::sesion_iniciada()) {
-    
-} else {
-    Redireccion::redirigir(SERVIDOR);
-}
+$titulo = "Usuarios";
+include_once 'plantillas/a.php';
+include_once '../plantillas/navbar.php';
+
 if (isset($_POST['enviar'])) {
     //al escribir :: decimos que vamos a usar un metodo dentro del archivo
     conexion::abrir_conexion();
@@ -26,25 +16,9 @@ if (isset($_POST['enviar'])) {
             Redireccion::redirigir(RUTA_USUARIOS);
         }
     }
-
     conexion:: cerrar_conexion();
 }
 ?>
-<!DOCTYPE html>
-<html lang ="es">
-    <head>
-        <link rel="icon" type="image/gif" href="Resources/TP.gif" />
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Registro de usuarios</title>
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/styles.css" rel="stylesheet">
-    </head>
-    <body>
-
-<?php include_once '../plantillas/navbar_index.php'; ?>
-
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -124,21 +98,6 @@ if (isset($_POST['enviar'])) {
                 </div>
             </div>
         </div>
-        <script src="../js/jquery.min.js"></script>       
-        <script src="../js/bootstrap.min.js"></script> 
-        <script src="../js/tableToExcel.js"></script>
-        <br>
-        <br>
-        <footer>
-            <div class="container">
-                <div >
-                    <div class="text-center" class="jumbotron">
-                        TC-F-BV-01, Octubre 2018, Rev. 1    
-                    </div>
-                    <div class="text-center" class="copyright"> 2018 &copy; Luis Medina. </div>
-                </div>
-            </div>
-        </footer>
-
-    </body>
-</html>
+<?php
+include_once 'plantillas/z.php';
+?>
