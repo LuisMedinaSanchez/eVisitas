@@ -1,8 +1,19 @@
 <?php
 $titulo = 'Busqueda de visitas';
-include_once 'plantillas/a.php';
+include_once '../app/Conexion.inc.php';
+include_once '../app/ValidadorLogin.inc.php';
+include_once '../app/ControlSesion.inc.php';
+include_once '../app/redireccion.inc.php';
+include_once '../app/config.inc.php';
+include_once '../app/cn.php';
+include_once '../plantillas/a.php';
 include_once '../plantillas/navbar.php';
 $nom_visita = $_REQUEST['nom_visita'];
+if (ControlSesion::sesion_iniciada()) {
+    
+} else {
+    Redireccion::redirigir(SERVIDOR);
+}//redireccionamos gente indeseable
 ?>
 <br>
 <div class="container">
@@ -71,6 +82,5 @@ $nom_visita = $_REQUEST['nom_visita'];
     </div>
 </div>
 <?php
-//incluimos la parte para cerrar el cuerpo de la pagina para no tener que volver a meter codigo
-include_once 'plantillas/z.php';
+include_once '../plantillas/z.php';
 ?>

@@ -1,8 +1,23 @@
 <?php
 $titulo = "Usuarios";
-include_once 'plantillas/a.php';
+include_once '../app/Conexion.inc.php';
+include_once '../app/RepositorioUsuario.inc.php';
+include_once '../app/config.inc.php';
+include_once '../app/RepositorioUsuario.inc.php';
+include_once '../app/ValidadorLogin.inc.php';
+include_once '../app/ControlSesion.inc.php';
+include_once '../app/redireccion.inc.php';
+include_once '../app/Usuario.inc.php';
+include_once '../app/ValidadorRegistro.inc.php';
+include_once '../app/redireccion.inc.php';
+include_once '../app/cn.php';
+include_once '../plantillas/a.php';
 include_once '../plantillas/navbar.php';
-
+if (ControlSesion::sesion_iniciada()) {
+    
+} else {
+    Redireccion::redirigir(SERVIDOR);
+}//redireccionamos gente indeseable
 if (isset($_POST['enviar'])) {
     //al escribir :: decimos que vamos a usar un metodo dentro del archivo
     conexion::abrir_conexion();
@@ -99,5 +114,5 @@ if (isset($_POST['enviar'])) {
             </div>
         </div>
 <?php
-include_once 'plantillas/z.php';
+include_once '../plantillas/z.php';
 ?>

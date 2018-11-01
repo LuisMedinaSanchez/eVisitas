@@ -1,7 +1,17 @@
 <?php
 $titulo = 'Busqueda de visitas';
-include_once 'plantillas/a.php';
+include_once '../app/Conexion.inc.php';
+include_once '../app/ValidadorLogin.inc.php';
+include_once '../app/ControlSesion.inc.php';
+include_once '../app/redireccion.inc.php';
+include_once '../app/config.inc.php';
+include_once '../plantillas/a.php';
 include_once '../plantillas/navbar.php';
+if (ControlSesion::sesion_iniciada()) {
+    
+} else {
+    Redireccion::redirigir(SERVIDOR);
+}//redireccionamos gente indeseable
 ?>
 <div class="container">
     <div class="container">
@@ -49,5 +59,5 @@ include_once '../plantillas/navbar.php';
     </div>
 </div>
 <?php
-include_once 'plantillas/z.php';
+include_once '../plantillas/z.php';
 ?>

@@ -1,7 +1,16 @@
 <?php
 $titulo = 'Previos';
-include_once '../plantillas/a.php';
+include_once '../../app/ControlSesion.inc.php';
+include_once '../../app/redireccion.inc.php';
+include_once '../../app/cn_casa.php';
+include_once '../../app/config.inc.php';
+include_once '../../plantillas/a.php';
 include_once '../../plantillas/navbar.php';
+if (ControlSesion::sesion_iniciada()) {
+    
+} else {
+    Redireccion::redirigir(SERVIDOR);
+}//redireccionamos gente indeseable
 $hori_inic = $_REQUEST['hori_inic'];
 $hor_fina = $_REQUEST['hor_fina'];
 ?>
@@ -32,7 +41,7 @@ $hor_fina = $_REQUEST['hor_fina'];
                                 <button class="btn btn-default btn-primary" name="Consultar">Consultar</button>
                             </div>
                             <div class="col-md-1">
-                                <a href="#"><img src="../../resources/xls-icon.png" onclick="tableToExcel('previos', 'Facturacion FedEx')" value="Export to Excel" style="width:40px;height:40px"></a>
+                                <a href="#"><img src="../../resources/xls-icon.png" onclick="tableToExcel('previos', 'Rendimiento de previos')" value="Export to Excel" style="width:40px;height:40px"></a>
                             </div>
                         </form>
                     </div>
@@ -99,5 +108,5 @@ $hor_fina = $_REQUEST['hor_fina'];
     </div>
 </div>
 <?php
- include_once '../plantillas/z.php';
+ include_once '../../plantillas/z.php';
  ?>

@@ -9,7 +9,7 @@ if (ControlSesion::sesion_iniciada()) {
     
 } else {
     Redireccion::redirigir(SERVIDOR);
-}
+}//redireccionamos gente indeseable
 
 $sql = "
 update saaio_pedime p set p.cve_impo='GA743' where p.cve_impo='I03206'
@@ -58,6 +58,6 @@ if (!$resultado3) {
 }
 
 
-    Redireccion::redirigir(SERVIDOR);
+    Redireccion::redirigir(RUTA_DASHBOARD);
 
 ?>

@@ -1,13 +1,12 @@
 <?php
 $titulo = 'Registro de visitas';
-include_once '../app/config.inc.php';
 include_once '../app/Conexion.inc.php';
-include_once '../app/RepositorioUsuario.inc.php';
-include_once '../app/redireccion.inc.php';
+include_once '../app/ValidadorLogin.inc.php';
 include_once '../app/ControlSesion.inc.php';
-include_once '../app/Usuario.inc.php';
+include_once '../app/redireccion.inc.php';
+include_once '../app/config.inc.php';
 include_once '../app/cn.php';
-include_once 'plantillas/a.php';
+include_once '../plantillas/a.php';
 include_once '../plantillas/navbar.php';
 //Para evitar registrar usuarios sin autorizacion
 if (ControlSesion::sesion_iniciada()) {
@@ -142,21 +141,6 @@ $mostrar = $resultado->fetch_assoc();
         </div>
     </div>
 </div>
-<script src="../js/jquery.min.js"></script>       
-<script src="../js/bootstrap.min.js"></script> 
-<script src="../js/tableToExcel.js"></script>
-<br>
-<br>
-<footer>
-    <div class="container">
-        <div >
-            <div class="text-center" class="jumbotron">
-                TC-F-BV-01, Octubre 2018, Rev. 1    
-            </div>
-            <div class="text-center" class="copyright"> 2018 &copy; Luis Medina. </div>
-        </div>
-    </div>
-</footer>
-
-</body>
-</html>
+<?php
+include_once '../plantillas/z.php';
+?>

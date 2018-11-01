@@ -1,7 +1,16 @@
 <?php
 $titulo = 'Previos';
-include_once '../plantillas/a.php';
+include_once '../../app/ControlSesion.inc.php';
+include_once '../../app/redireccion.inc.php';
+include_once '../../app/cn_casa.php';
+include_once '../../app/config.inc.php';
+include_once '../../plantillas/a.php';
 include_once '../../plantillas/navbar.php';
+if (ControlSesion::sesion_iniciada()) {
+    
+} else {
+    Redireccion::redirigir(SERVIDOR);
+}//redireccionamos gente indeseable
 ?>
 <br>
 <div class="container">
@@ -32,39 +41,11 @@ include_once '../../plantillas/navbar.php';
                         </form>
                     </div>
                 </div>
-                <div class="panel-body">
-                    <form role="form" method="post" enctype="multipart/form-data" action="/previo_buscado.php">
-                        <div id="collapseOne" class="">
-                            <div class="panel-body">
-                                <table class="table table-responsive" id="previos">
-                                    <thead>
-                                        <tr>
-                                            <th>REFERENCIA</th>
-                                            <th>PARTIDAS</th>
-                                            <th>TRAMITADOR</th>
-                                            <th>FECHA Y HORA DE INICIO</th>
-                                            <th>FECHA Y HORA DE FIN</th>
-                                            <th>TIEMPO USADO</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                <div class="panel-body"></div>
             </div>
         </div>
     </div>
 </div>
 <?php
-include_once '../plantillas/z.php';
+include_once '../../plantillas/z.php';
 ?>

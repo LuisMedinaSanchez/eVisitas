@@ -1,26 +1,20 @@
 ﻿<?php
 $titulo = 'Reporte de remesas';
-include_once 'app/config.inc.php';
-include_once 'app/Conexion.inc.php';
-//include_once 'app/Usuario.inc.php';
-//include_once 'app/RepositorioUsuario.inc.php';
-//include_once 'app/ValidadorRegistro.inc.php';
-include_once 'app/redireccion.inc.php';
-include_once 'app/ControlSesion.inc.php';
-//include_once 'app/cn.php';
-include_once 'app/cn_casa.php';
-//Para evitar registrar usuarios sin autorizacion
+include_once '../../app/ControlSesion.inc.php';
+include_once '../../app/redireccion.inc.php';
+include_once '../../app/cn_casa.php';
+include_once '../../app/config.inc.php';
+include_once '../../plantillas/a.php';
+include_once '../../plantillas/navbar.php';
 if (ControlSesion::sesion_iniciada()) {
     
 } else {
     Redireccion::redirigir(SERVIDOR);
-}
-include_once 'plantillas/documento-declaracion.inc.php';
-include_once 'plantillas/navbar_reportes.inc.php';
+}//redireccionamos gente indeseable
 $hori_inic = $_REQUEST['hori_inic'];
 $hor_fina = $_REQUEST['hor_fina'];
 ?>
-
+<br>
 <div class="row">
     <div class="col-md-12 text-center">
         <div class="panel panel-default">
@@ -46,7 +40,7 @@ $hor_fina = $_REQUEST['hor_fina'];
                                 <button class="btn btn-default btn-primary" name="Consultar">Consultar</button>
                             </div>
                             <div class="col-md-1">
-                                <a href="#"><img src="resources/xls-icon.png" onclick="tableToExcel('facturacion', 'Facturacion FedEx')" value="Export to Excel" style="width:40px;height:40px"></a>
+                                <a href="#"><img src="../../resources/xls-icon.png" onclick="tableToExcel('facturacion', 'Facturacion FedEx')" value="Export to Excel" style="width:40px;height:40px"></a>
                             </div>
                         </form>
                     </div>
@@ -145,9 +139,6 @@ where p.ADU_DESP='650' and c.cve_comi='FED' and p.fec_pago BETWEEN '$hori_inic' 
         </div>
     </div>
 </div>
-
-
 <?php
-//incluimos la parte para cerrar el cuerpo de la pagina para no tener que volver a meter codigo
-include_once 'plantillas/documento-cierre.inc.php';
+include_once '../../plantillas/z.php';
 ?>

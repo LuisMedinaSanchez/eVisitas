@@ -1,7 +1,16 @@
 <?php
 $titulo = 'Espejos';
-include_once '../plantillas/a.php';
+include_once '../../app/ControlSesion.inc.php';
+include_once '../../app/redireccion.inc.php';
+include_once '../../app/cn_casa.php';
+include_once '../../app/config.inc.php';
+include_once '../../plantillas/a.php';
 include_once '../../plantillas/navbar.php';
+if (ControlSesion::sesion_iniciada()) {
+    
+} else {
+    Redireccion::redirigir(SERVIDOR);
+}//redireccionamos gente indeseable
 ?>
 <div class="row">
     <div class="col-md-12 text-center">
@@ -19,7 +28,7 @@ include_once '../../plantillas/navbar.php';
                         <a href="../app/cliente_espejo">Reparar</a>
                     </div>
                     <div class="col-md-5">
-                        <a href="#"><img src="../../resources/xls-icon.png" onclick="tableToExcel('cliente', 'Facturacion FedEx')" value="Export to Excel" style="width:40px;height:40px"></a>
+                        <a href="#"><img src="../../resources/xls-icon.png" onclick="tableToExcel('cliente', 'Lista de clientes incorrectos')" value="Export to Excel" style="width:40px;height:40px"></a>
                     </div>
                 </div>
             </div>
@@ -85,5 +94,5 @@ include_once '../../plantillas/navbar.php';
     </div>
 </div>
 <?php
-include_once '../plantillas/z.php';
+include_once '../../plantillas/z.php';
 ?>

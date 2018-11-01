@@ -1,16 +1,26 @@
 <?php
 $titulo = 'Visitas';
-//Esta hoja es para mostrar una barra de navegacion diferene a la del index y es para el menú principal
-include_once 'plantillas/a.php';
+include_once '../app/Conexion.inc.php';
+include_once '../app/ValidadorLogin.inc.php';
+include_once '../app/ControlSesion.inc.php';
+include_once '../app/redireccion.inc.php';
+include_once '../app/config.inc.php';
+include_once '../plantillas/a.php';
 include_once '../plantillas/navbar.php';
-//Funciones de la pagina
 Conexion::abrir_conexion();
+//Array de pesonas activas
 $visitas = RepositorioUsuario :: obtener_todos(Conexion::obtener_conexion());
+//Array de registros sin terminar
 $visitas_falta = RepositorioUsuario :: obtener_falta_registro(Conexion::obtener_conexion());
+//Array de todas las visitas
 $visitas_historico = RepositorioUsuario :: obtener_todos_historico(Conexion::obtener_conexion());
 Conexion:: cerrar_conexion();
+if (ControlSesion::sesion_iniciada()) {
+    
+} else {
+    Redireccion::redirigir(SERVIDOR);
+}//redireccionamos gente indeseable
 ?>
-<!--INICIO DE CODIGO HTML-->
 <div class="row">
     <div class="col-md-5"></div>
     <div class="col-md-3">
@@ -41,5 +51,5 @@ Conexion:: cerrar_conexion();
     <div class="col-md-5"></div>
 </div>
 <?php
-include_once 'plantillas/z.php';
+include_once '../plantillas/z.php';
 ?>

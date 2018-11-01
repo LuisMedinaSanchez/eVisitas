@@ -5,7 +5,7 @@ define('PASSWORD', '');
 define('NOMBRE_BD', 'blog');
 
 //pagina principal
-define("SERVIDOR", "http://192.168.0.2:88/transpheric");
+define("SERVIDOR", "http://192.168.0.2:88");
 define("RUTA_DASHBOARD", SERVIDOR."/dashboard/");
 define("RUTA_LOGIN_CIERRE", SERVIDOR."/SesionCerrada");
 
@@ -24,6 +24,7 @@ define("RUTA_USUARIOS", SERVIDOR."/usuarios");
 define("RUTA_REGISTRO_USUARIOS", SERVIDOR."/RegistroUsuarios");
 define("RUTA_CAMBIOS", SERVIDOR."/cambio_correcto");
 
+define("RUTA_SISTEMAS_CASA", SERVIDOR."/sistemas_casa");
 define("RUTA_PREVIOS", SERVIDOR."/sistemas_casa/previos");
 define("RUTA_REMESAS", SERVIDOR."/sistemas_casa/finanzas");
 define("RUTA_CLIENTE_ESPEJO", SERVIDOR."/sistemas_casa/sistemas");
