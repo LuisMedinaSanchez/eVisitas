@@ -14,7 +14,6 @@ if (ControlSesion::sesion_iniciada()) {
     Redireccion::redirigir(SERVIDOR);
 }//redireccionamos gente indeseable
 ?>
-?>
 <br>
 <div class="container">
     <div class="row">
