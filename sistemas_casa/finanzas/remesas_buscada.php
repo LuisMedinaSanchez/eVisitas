@@ -13,6 +13,7 @@ if (ControlSesion::sesion_iniciada()) {
 }//redireccionamos gente indeseable
 $hori_inic = $_REQUEST['hori_inic'];
 $hor_fina = $_REQUEST['hor_fina'];
+$cve_impo = $_REQUEST['cve_impo'];
 ?>
 <br>
 <div class="row">
@@ -25,26 +26,42 @@ $hor_fina = $_REQUEST['hor_fina'];
             </div>
             <br>
             <div class="row">
-                    <div class="form-group">
-                        <form role="form" method="post" action="remesas_buscada?hori_inic&hor_fina">
-                            <div class="col-md-1">Fechas de pago</div>
-                            <div class="col-md-2">
-                                <label>Fecha de inicio</label>
-                                <input required="required" type="date" required="required" value='<?php echo $_REQUEST['hori_inic']; ?>'  class="form-control" id="hori_inic" name="hori_inic">
-                            </div>
-                            <div class="col-md-2">
-                                <label>Fecha de inicio</label>
-                                <input required="required" type="date" value='<?php echo $_REQUEST['hor_fina']; ?>' class="form-control" id="hor_atencion" id="hor_fina" name="hor_fina">
-                            </div>
-                            <div class="col-md-1">
-                                <button class="btn btn-default btn-primary" name="Consultar">Consultar</button>
-                            </div>
-                            <div class="col-md-1">
-                                <a href="#"><img src="../../resources/xls-icon.png" onclick="tableToExcel('facturacion', 'Facturacion FedEx')" value="Export to Excel" style="width:40px;height:40px"></a>
-                            </div>
-                        </form>
-                    </div>
+                <div class="form-group">
+                    <form role="form" method="post" action="remesas_buscada?hori_inic&hor_fina">
+                        <div class="col-md-1">Fechas de pago</div>
+                        <div class="col-md-2">
+                            <label>Fecha de inicio</label>
+                            <input required="required" type="date" required="required" value='<?php echo $_REQUEST['hori_inic']; ?>'  class="form-control" id="hori_inic" name="hori_inic">
+                        </div>
+                        <div class="col-md-2">
+                            <label>Fecha de inicio</label>
+                            <input required="required" type="date" value='<?php echo $_REQUEST['hor_fina']; ?>' class="form-control" id="hor_atencion" id="hor_fina" name="hor_fina">
+                        </div>
+                        <div class="col-md-2">
+                            <label>Importador</label>
+                            <select class="form-control" id="cve_impo" name="cve_impo" >
+                                <option value="">Todos</option>
+                                <?php
+                                $sql2 = "select CVE_IMP, NOM_IMP from CTRAC_CLIENT where cve_comi='FED';";
+                                $resultado2 = ibase_query($conexion_casa, $sql2);
+                                while ($mostrar2 = ibase_fetch_object($resultado2)) {
+                                    ?>
+                                    <option value="AND c.cve_imp in ('<?php echo $mostrar2->CVE_IMP ?>')"><?php echo $mostrar2->CVE_IMP . " " . $mostrar2->NOM_IMP ?></option>
+                                    <?php
+                                }
+                                
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-default btn-primary" name="Consultar">Consultar</button>
+                        </div>
+                        <div class="col-md-1">
+                            <a href="#"><img src="../../resources/xls-icon.png" onclick="tableToExcel('facturacion', 'Facturacion FedEx')" value="Export to Excel" style="width:40px;height:40px"></a>
+                        </div>
+                    </form>
                 </div>
+            </div>
             <div class="panel-body">
                 <form role="form" method="post">
                     <div id="collapseOne" class="">
@@ -98,8 +115,7 @@ from saaio_pedime p
 left outer join ctrac_client c ON p.cve_impo = c.cve_imp
 left outer join saaio_guias g ON p.num_refe = g.num_refe
 left outer join ctrao_etapas h ON p.num_refe = h.num_refe
-where p.ADU_DESP='650' and c.cve_comi='FED' and p.fec_pago BETWEEN '$hori_inic' AND '$hor_fina' and h.cve_etap='130'
-";
+where p.ADU_DESP='650' and c.cve_comi='FED' and p.fec_pago BETWEEN '$hori_inic' AND '$hor_fina' AND h.cve_etap='130' $cve_impo;";
                                     $resultado = ibase_query($conexion_casa, $sql);
 
                                     while ($mostrar = ibase_fetch_object($resultado)) {
@@ -126,9 +142,7 @@ where p.ADU_DESP='650' and c.cve_comi='FED' and p.fec_pago BETWEEN '$hori_inic' 
                                         </tr>
                                         <?php
                                     }
-                                    ibase_close();
-                                    if (!$conexion_casa)
-                                        echo 'conexion a BD no cerrada';
+                                    
                                     ?>
                                 </tbody>
                             </table>

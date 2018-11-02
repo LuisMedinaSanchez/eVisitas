@@ -83,7 +83,7 @@ $mostrar = $resultado->fetch_assoc();
                                             <div class="col-md-2">
                                                 <label><strong class="text-danger" style="font-size: 20px">*</strong> Gafete </label>
                                                 <select required="required" class="form-control"  id="num_gafete" name="num_gafete" >
-                                                    <option value="<?php echo $mostrar['num_gafete'] ?>"selected><?php echo $mostrar['num_gafete'] ?></option>
+                                                    <option value="<?php echo $mostrar['num_gafete'] ?>" selected><?php echo $mostrar['num_gafete'] ?></option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>

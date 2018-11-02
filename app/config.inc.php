@@ -5,7 +5,7 @@ define('PASSWORD', '');
 define('NOMBRE_BD', 'blog');
 
 //pagina principal
-define("SERVIDOR", "http://192.168.0.2:88");
+define("SERVIDOR", "http://192.168.1.1:81");
 define("RUTA_DASHBOARD", SERVIDOR."/dashboard/");
 define("RUTA_LOGIN_CIERRE", SERVIDOR."/SesionCerrada");
 
