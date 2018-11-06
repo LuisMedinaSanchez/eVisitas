@@ -75,7 +75,7 @@ $nom_depe = $_REQUEST['nom_depe'];
                 </div>
                 <div class="panel-body">
                     <form role="form" method="post" enctype="multipart/form-data" action="/previo_buscado.php">
-                        <div id="collapseOne" class="">
+                        <div id="collapseOne" >
                             <div class="panel-body">
                                 <table class="table table-responsive" id="previos">
                                     <thead>
