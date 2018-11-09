@@ -70,7 +70,7 @@ class repositoriousuario {
         if (isset($conexion)) {
             try {
 
-                $sql = "INSERT INTO blog.usuarios(nombre, email, password, fecha_registro, activo) VALUES(:nombre, :email, :password, NOW(), 0)";
+                $sql = "INSERT INTO usuarios(nombre, email, password, fecha_registro, activo) VALUES(:nombre, :email, :password, NOW(), 1)";
                 //para php hay que pasar los datos por variables temporales, esto por seguridad
                 $nombretemp = $usuario->obtener_nombre();
                 $emailtemp = $usuario->Obtener_email();

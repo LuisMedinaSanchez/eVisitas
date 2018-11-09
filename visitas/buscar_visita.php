@@ -8,6 +8,7 @@ include_once '../app/config.inc.php';
 include_once '../app/cn.php';
 include_once '../plantillas/a.php';
 include_once '../plantillas/navbar.php';
+include_once '../plantillas/navbar_opciones.php';
 $nom_visita = $_REQUEST['nom_visita'];
 if (ControlSesion::sesion_iniciada()) {
     

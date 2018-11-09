@@ -7,6 +7,7 @@ include_once '../app/redireccion.inc.php';
 include_once '../app/config.inc.php';
 include_once '../plantillas/a.php';
 include_once '../plantillas/navbar.php';
+include_once '../plantillas/navbar_opciones.php';
 include_once '../plantillas/z.php';
 if (ControlSesion::sesion_iniciada()) {
     

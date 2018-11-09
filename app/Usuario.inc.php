@@ -11,7 +11,7 @@ class usuario {
     public $password;
     public $fecha_registro;
     public $activo;
-
+   
     //Este constructor tiene todos los campos que manejaremos y que son los mismos de la tabla en SQL
     public function __construct($id_usuario, $nombre, $email, $password, $fecha_registro, $activo) {
         //
@@ -46,7 +46,7 @@ class usuario {
     public function obtener_Activo() {
         return $this->activo;
     }
-
+    
     public function cambiar_nombre($nombre) {
         $this->nombre = $nombre;
     }
@@ -62,5 +62,5 @@ class usuario {
     public function cambiar_activo($activo) {
         $this->activo = $activo;
     }
-
+    
 }

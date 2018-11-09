@@ -2,7 +2,7 @@
 define('NOMBRE_SERVIDOR', 'localhost');
 define('NOMBRE_USUARIO', 'root');
 define('PASSWORD', '');
-define('NOMBRE_BD', 'blog');
+define('NOMBRE_BD', 'transpheric');
 
 //pagina principal
 define("SERVIDOR", "http://192.168.1.1:81");

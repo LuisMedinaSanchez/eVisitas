@@ -13,6 +13,7 @@ include_once '../app/redireccion.inc.php';
 include_once '../app/cn.php';
 include_once '../plantillas/a.php';
 include_once '../plantillas/navbar.php';
+include_once '../plantillas/navbar_opciones.php';
 if (ControlSesion::sesion_iniciada()) {
     
 } else {
@@ -87,7 +88,7 @@ if (isset($_POST['enviar'])) {
                                              nombre,
                                              email,
                                              CASE activo WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' END as activo,
-                                             CASE perfil WHEN 1 THEN 'Recepcion' WHEN 0 THEN 'Administrador' END as perfil
+                                             CASE perfil WHEN 2 THEN 'Recepcion' WHEN 1 THEN 'Reportes' WHEN 0 THEN 'Administrador' END as perfil
                                              FROM usuarios";
                                                 $resultado = mysqli_query($conexion, $sql);
 

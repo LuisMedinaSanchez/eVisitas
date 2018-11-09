@@ -6,6 +6,7 @@ include_once '../../app/cn_casa.php';
 include_once '../../app/config.inc.php';
 include_once '../../plantillas/a.php';
 include_once '../../plantillas/navbar.php';
+include_once '../../plantillas/navbar_opciones.php';
 if (ControlSesion::sesion_iniciada()) {
     
 } else {
