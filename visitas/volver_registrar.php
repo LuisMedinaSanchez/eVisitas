@@ -8,6 +8,7 @@ include_once '../app/config.inc.php';
 include_once '../app/cn.php';
 include_once '../plantillas/a.php';
 include_once '../plantillas/navbar.php';
+include_once '../plantillas/navbar_opciones.php';
 if (ControlSesion::sesion_iniciada()) {
     
 } else {
@@ -34,11 +35,15 @@ $mostrar = $resultado->fetch_assoc();
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="form-group">
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <label><strong class="text-danger" style="font-size: 20px">*</strong> Nombre de visita</label>
                                                 <input type="text" required="required" value='<?php echo $mostrar['nom_visitas']; ?>' class="form-control" name="nom_visita">
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
+                                                <label><strong class="text-danger" style="font-size: 20px">*</strong> Cuenta de correo</label>
+                                                <input type="email" required="required" value='<?php echo $mostrar['mail_visita']; ?>' class="form-control" name="mail_visita">
+                                            </div>
+                                            <div class="col-md-4">
                                                 <label><strong class="text-danger" style="font-size: 20px">*</strong> Identificacion oficial</label>
                                                 <input type="text" required="required" value='<?php echo $mostrar['ide_oficial']; ?>' class="form-control" name="ide_oficial">
                                             </div>
@@ -47,10 +52,8 @@ $mostrar = $resultado->fetch_assoc();
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-4">
-                                                <label><strong class="text-danger" style="font-size: 20px">*</strong> Persona a quien visita </label>
-                                                <select required="required" class="form-control" name="per_visita" >
-                                                    <option value="<?php echo $mostrar['per_visita']; ?>"><?php echo $mostrar['per_visita']; ?></option>
-                                                    <option value="Luis Medina Sánchez" >Luis Medina Sánchez (Sub. Gerente de sistemas)</option></select>
+                                                <label><strong class="text-danger" style="font-size: 20px">*</strong> Persona a quien visita</label>
+                                                <input type="text" required="required" value='<?php echo $mostrar['per_visita']; ?>' class="form-control" id="per_visita" name="per_visita" placeholder="Persona a quien visitas *">
                                             </div>
                                             <div class="col-md-4">
                                                 <label><strong class="text-danger" style="font-size: 20px">*</strong> Asunto</label>	

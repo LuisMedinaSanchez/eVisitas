@@ -8,6 +8,7 @@ include_once '../app/config.inc.php';
 include_once '../app/cn.php';
 include_once '../plantillas/a.php';
 include_once '../plantillas/navbar.php';
+include_once '../plantillas/navbar_opciones.php';
 if (ControlSesion::sesion_iniciada()) {
     
 } else {
@@ -32,6 +33,7 @@ if (ControlSesion::sesion_iniciada()) {
                                     <thead>
                                         <tr>
                                             <th>Nombre de visita</th>
+                                            <th>Cuenta de correo</th>
                                             <th>Persona a quien visita</th>
                                             <th>Asunto</th>
                                             <th>Hora de visita:</th>
@@ -48,6 +50,7 @@ if (ControlSesion::sesion_iniciada()) {
                                                 id_visitas,
                                                 fec_visita,
                                                 nom_visitas,
+                                                mail_visita,
                                                 per_visita,
                                                 asunto,
                                                 CASE tip_visita WHEN 1 THEN 'Proveedor' WHEN 2 THEN 'Visita' END as tip_visita,
@@ -60,6 +63,7 @@ if (ControlSesion::sesion_iniciada()) {
                                             ?>
                                             <tr>
                                                 <td><?php echo $mostrar['nom_visitas'] ?></td>
+                                                <td><?php echo $mostrar['mail_visita'] ?></td>
                                                 <td><?php echo $mostrar['per_visita'] ?></td>
                                                 <td><?php echo $mostrar['asunto'] ?></td>
                                                 <td><?php echo $mostrar['fec_visita'] ?></td>

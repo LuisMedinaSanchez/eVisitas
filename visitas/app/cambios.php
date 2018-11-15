@@ -8,6 +8,7 @@ include_once '../../app/ControlSesion.inc.php';
 
 $id_visitas = $_REQUEST['id_visitas'];
 $nom_visita = $_POST['nom_visita'];
+$mail_visita = $_POST['mail_visita'];
 $ide_oficial = $_POST['ide_oficial'];
 $per_visita = $_POST['per_visita'];
 $asunto = $_POST['asunto'];
@@ -29,6 +30,7 @@ $fot_ide_visita = $carpeta_remoto.$nom_fot_ide_visita;
 $insertar = "
         UPDATE      visitas
         SET nom_visitas=    '$nom_visita',
+        mail_visita=        '$mail_visita',
         ide_oficial=        '$ide_oficial',
         per_visita=         '$per_visita',
         asunto=             '$asunto',
