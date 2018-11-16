@@ -56,13 +56,15 @@ if (ControlSesion::sesion_iniciada()) {
                                                 asunto,
                                                 observaciones,
                                                 hor_atencion,
-                                                CASE tip_visita WHEN 1 THEN 'Proveedor' WHEN 0 THEN 'Visita' END as tip_visita,
+                                                CASE tip_visita WHEN 1 THEN 'Proveedor' WHEN 2 THEN 'Visita' END as tip_visita,
                                                 num_gafete,
                                                 fot_visita,
                                                 fot_ide_visita,
                                                 hor_salida,
                                                 activo
-                                                FROM visitas WHERE activo = 0 ";
+                                                FROM visitas WHERE activo = 0 
+                                                ORDER BY id_visitas
+                                                desc LIMIT 0, 25";
                                         $resultado = mysqli_query($conexion, $sql);
                                         while ($mostrar = mysqli_fetch_array($resultado)) {
                                             ?>
