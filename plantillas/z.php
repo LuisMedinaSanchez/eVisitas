@@ -1,6 +1,6 @@
-<script src="/js/jquery.min.js"></script>       
-<script src="/js/bootstrap.min.js"></script> 
-<script src="/js/tableToExcel.js"></script>
+<script src="/eVisitas/js/jquery.min.js"></script>       
+<script src="/eVisitas/js/bootstrap.min.js"></script> 
+<script src="/eVisitas/js/tableToExcel.js"></script>
 <br>
 <br>
 <footer>
