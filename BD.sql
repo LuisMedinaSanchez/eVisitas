@@ -17,7 +17,7 @@ CREATE TABLE `usuarios` (
 
 -- Volcado de datos para la tabla `usuarios
 INSERT INTO `usuarios` (`id_usuarios`, `nombre`, `email`, `password`, `fecha_registro`, `activo`, `perfil`) VALUES
-(1, 'Luis Medina Sánchez', 'usuario@dominio.com', '$2y$10$MY3i3oRGCafbGywEG/n07.FEXQONeWuMwRMbmXYyVPEj1ctgDsrZe', '2018-10-31 08:02:25', 1, 0);
+(1, 'Luis Medina Sánchez', 'luismedinasanchez@hotmail.com', '$2y$10$MY3i3oRGCafbGywEG/n07.FEXQONeWuMwRMbmXYyVPEj1ctgDsrZe', '2018-10-31 08:02:25', 1, 0);
 
 
 -- Estructura de tabla para la tabla `visitas`
